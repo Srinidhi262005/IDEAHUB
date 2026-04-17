@@ -1,0 +1,289 @@
+/* =========================================================
+   IDEAHUB – JYOTHISHMATHI INSTITUTE OF TECH & SCIENCE
+   PROFESSIONAL ACADEMIC THEME – STABLE VERSION
+   ========================================================= */
+
+/* ---------------- ROOT VARIABLES ---------------- */
+:root {
+  --primary: #1d3b72;
+  --secondary: #264b96;
+  --accent: #e63946;
+  --light-bg: #f4f6f9;
+  --text-main: #0a1f44;
+  --text-muted: #555;
+  --white: #ffffff;
+  --border: #d1d5db;
+  --shadow: 0 3px 10px rgba(0,0,0,0.1);
+  --radius: 6px;
+  --transition: all 0.3s ease;
+}
+
+/* ---------------- RESET ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+  background: var(--white);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+.topbar {
+  background: var(--primary);
+  color: white;
+  font-size: 0.9rem;
+  padding: 6px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.navbar {
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 60px;
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--light-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 46px;
+  margin-right: 10px;
+}
+
+.navbar .site-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active-link {
+  color: var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+}
+
+/* =========================================================
+   COMMON BUTTONS
+   ========================================================= */
+.btn-primary,
+.btn-cta {
+  background: var(--accent);
+  color: white;
+  padding: 8px 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary:hover,
+.btn-cta:hover {
+  background: #c92f3d;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   CARD GRID (IDEAS / DASHBOARD / COLLABS)
+   ========================================================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.premium-card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  border-top: 6px solid var(--primary);
+}
+
+.premium-card:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   REPORT / ACADEMIC TABLE (EXPLORE PAGE)
+   ========================================================= */
+
+.project-table-container {
+  width: 100%;
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 2px solid #9ca3af;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Header band */
+.project-table thead {
+  background: #dbeafe;
+}
+
+.project-table th {
+  border: 1px solid #9ca3af;
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #111827;
+}
+
+.project-table td {
+  border: 1px solid #9ca3af;
+  padding: 12px;
+  vertical-align: middle;
+  color: #111827;
+}
+
+/* Alignment */
+.project-table td:nth-child(1),
+.project-table td:nth-child(3),
+.project-table td:nth-child(4),
+.project-table td:nth-child(7) {
+  text-align: center;
+}
+
+/* Row styles */
+.project-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.project-table tbody tr:hover {
+  background: #eef2ff;
+}
+
+/* Tech tags */
+.tech-tag {
+  display: inline-block;
+  border: 1px solid #2563eb;
+  padding: 3px 8px;
+  margin: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e3a8a;
+  background: #eff6ff;
+  border-radius: 4px;
+}
+
+/* Empty row */
+.project-table .empty-row {
+  text-align: center;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 20px;
+}
+
+/* =========================================================
+   FORMS (ADMIN / SUBMIT IDEA)
+   ========================================================= */
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer {
+  background: var(--primary);
+  color: #dce4f0;
+  text-align: center;
+  padding: 25px 15px;
+  margin-top: 60px;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    padding: 12px 25px;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+}
+
+
+
+

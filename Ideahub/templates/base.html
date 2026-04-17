@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}IdeaHub - JITS{% endblock %}</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  /* ============================
+     HYBRID JITS BASE TEMPLATE
+     ============================ */
+  :root {
+    --primary: #1d3b72;
+    --secondary: #264b96;
+    --accent: #e63946;
+    --white: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #1c94e4;
+    --bg-light: #f7faff;
+    --radius: 8px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* --- Topbar --- */
+  .topbar {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: white;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 50px;
+    letter-spacing: 0.2px;
+  }
+
+  .topbar a {
+    color: white;
+    margin: 0 10px;
+    opacity: 0.95;
+    transition: var(--transition);
+  }
+
+  .topbar a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  /* --- Navbar --- */
+  header.navbar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+  }
+
+  .navbar .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+
+  .navbar .logo {
+    height: 46px;
+    margin-right: 12px;
+  }
+
+  .site-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary);
+    letter-spacing: 0.4px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a {
+    color: var(--text-main);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.88rem;
+    transition: var(--transition);
+    padding-bottom: 4px;
+  }
+
+  nav ul li a:hover,
+  .active-link {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+  }
+
+  .btn-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    transition: var(--transition);
+  }
+
+  .btn-cta:hover {
+    background: #c92f3d;
+    transform: translateY(-2px);
+  }
+
+  /* --- Mobile Nav --- */
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary);
+  }
+
+  @media (max-width: 900px) {
+    nav ul {
+      display: none;
+      position: absolute;
+      top: 110px;
+      right: 20px;
+      background: var(--white);
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      z-index: 999;
+    }
+    nav ul.active {
+      display: flex;
+    }
+    .menu-toggle {
+      display: block;
+    }
+  }
+
+  /* --- Main --- */
+  main {
+    flex: 1;
+    padding-top: 40px;
+  }
+
+  /* --- Footer --- */
+  footer {
+    background: var(--primary);
+    color: #e1e7f2;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  footer a {
+    color: #ffd166;
+    font-weight: 600;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Top Info Bar -->
+  <div class="topbar">
+    <div>
+      <a href="{{ url_for('routes.about_us') }}">About JITS</a> |
+    </div>
+    <div>
+      <a href="{{ url_for('routes.events_view') }}">Events</a> |
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div style="display: flex; align-items: center;">
+        <img src="{{ url_for('static', filename='images/jits_logo.png') }}" alt="JITS Logo" class="logo">
+        <h1 class="site-title">IdeaHub JITS</h1>
+      </div>
+
+      <nav>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <ul id="navMenu">
+          <li><a href="{{ url_for('mentors.mentors_view') }}">Mentors</a></li>
+          <li><a href="{{ url_for('routes.dashboard') }}">Dashboard</a></li>
+          <li><a href="{{ url_for('routes.submit_idea') }}">Submit Idea</a></li>
+          <li><a href="{{ url_for('routes.collaborations_view') }}">Collaborate</a></li>
+          <li><a href="{{ url_for('routes.hackathons_view') }}">Hackathons</a></li>
+          <li><a href="{{ url_for('routes.events_view') }}">Events</a></li>
+          <li><a href="{{ url_for('routes.teams_view') }}">Teams</a></li>
+          <li><a href="{{ url_for('routes.explore') }}">Explore</a></li>
+
+          {% if current_user.is_authenticated and current_user.is_admin %}
+            <li><a href="{{ url_for('routes.admin_panel') }}">Admin Panel</a></li>
+          {% endif %}
+
+          {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('routes.logout') }}">Logout</a></li>
+          {% else %}
+            <li><a href="{{ url_for('routes.login') }}">Login</a></li>
+            <li><a href="{{ url_for('routes.register') }}" class="btn-cta">Register</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dynamic Page Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© {{ current_year or 2025 }} Jyothishmathi Institute of Technology & Science | Ideahub Platform</p>
+    <p>Karimnagar, Telangana | <a href="https://jits.ac.in/" target="_blank">Visit College Website</a></p>
+  </footer>
+
+  <script>
+    // Mobile Nav Toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    menuToggle.addEventListener("click", () => navMenu.classList.toggle("active"));
+
+    // Highlight active page
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active-link');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+

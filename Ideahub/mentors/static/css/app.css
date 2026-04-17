@@ -1,0 +1,461 @@
+/* ==========================================================
+   IDEAHUB – JITS | PROFESSIONAL APP THEME
+   Author: JITS Ideahub Design Team (Optimized by ChatGPT)
+   ========================================================== */
+
+/* ===== Base Theme ===== */
+body {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  background-color: #f7f9fc;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #003366 0%, #00224d 100%);
+  color: white;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.open {
+  width: 70px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar ul li a {
+  display: block;
+  color: white;
+  padding: 15px 22px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  background-color: #0055aa;
+  padding-left: 30px;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+}
+
+/* ===== Main Content ===== */
+.dashboard-content,
+main {
+  margin-left: 240px;
+  padding: 30px;
+  transition: margin-left 0.3s ease;
+  background: #f7f9fc;
+  min-height: 100vh;
+}
+
+.sidebar.open ~ main {
+  margin-left: 80px;
+}
+
+/* ===== Cards ===== */
+.card,
+.idea-card,
+.document-card,
+.mentor-card,
+.collab-card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.idea-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Buttons ===== */
+.btn,
+.btn-small,
+.btn-collab,
+.btn-submit {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn:hover,
+.btn-small:hover,
+.btn-collab:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: #0077cc;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 119, 204, 0.3);
+}
+
+.btn-danger {
+  background-color: #cc3300;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(204, 51, 0, 0.3);
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* ===== Toasts ===== */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #003366;
+  color: white;
+  padding: 16px 22px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.5s ease;
+  font-size: 15px;
+  z-index: 10000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================
+   COLLABORATION PAGE – PROFESSIONAL UI
+========================================================== */
+
+/* ---------- Page Header ---------- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e6eaf0;
+  padding-bottom: 10px;
+}
+
+.page-header h2 {
+  color: #003366;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-blue,
+.btn-green,
+.btn-red,
+.btn-secondary,
+.btn-blue-small,
+.btn-green-small,
+.btn-red-small {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: 0.2s ease;
+  letter-spacing: 0.2px;
+}
+
+.btn-blue { background: #0077cc; color: #fff; }
+.btn-green { background: #28a745; color: #fff; }
+.btn-red { background: #cc3300; color: #fff; }
+.btn-secondary { background: #aaa; color: #fff; }
+
+.btn-blue-small,
+.btn-green-small,
+.btn-red-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.btn-blue-small { background: #0077cc; color: white; }
+.btn-green-small { background: #28a745; color: white; }
+.btn-red-small { background: #cc3300; color: white; }
+
+.btn-blue:hover,
+.btn-green:hover,
+.btn-red:hover,
+.btn-secondary:hover,
+.btn-blue-small:hover,
+.btn-green-small:hover,
+.btn-red-small:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+/* ---------- Collaboration Card ---------- */
+.card {
+  margin-bottom: 25px;
+  border-left: 5px solid #0077cc;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* ---------- Meta Text ---------- */
+.meta {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.meta-small {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ---------- Badges ---------- */
+.badge-green,
+.badge-blue,
+.badge-gray {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-green { background: #28a745; color: white; }
+.badge-blue { background: #0077cc; color: white; }
+.badge-gray { background: #dddddd; color: #333; }
+
+/* ---------- Team Section ---------- */
+.teams-section h4 {
+  margin-top: 20px;
+  color: #003366;
+  font-weight: 600;
+}
+
+.team-card {
+  background: #f8faff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid #0077cc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Members Chip */
+.member-chip {
+  background: #003366;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 3px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Requests */
+.team-requests {
+  margin-top: 12px;
+}
+
+.request-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* ---------- Comments ---------- */
+.comments-box {
+  margin-top: 20px;
+}
+
+.comment-item {
+  background: #f1f3f9;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.comment-item strong {
+  color: #003366;
+  font-weight: 600;
+}
+
+.comment-item small {
+  color: #777;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.comments-box textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ---------- Modal ---------- */
+.modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-bg.active {
+  display: flex;
+}
+
+.modal-box {
+  background: white;
+  width: 420px;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  animation: modalSlide 0.4s ease;
+}
+
+@keyframes modalSlide {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-box h3 {
+  margin-bottom: 15px;
+  color: #003366;
+  font-weight: 600;
+}
+
+.modal-box .form-group {
+  margin-bottom: 14px;
+}
+
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  font-family: inherit;
+  transition: border 0.3s ease;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+/* ---------- File Input ---------- */
+input[type="file"] {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .sidebar {
+    position: absolute;
+    left: -240px;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .dashboard-content,
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-box {
+    width: 90%;
+    padding: 18px;
+  }
+}
+
+/* ---- Gradient background ---- */
+body {
+  background: linear-gradient(135deg, #f3f7fb, #e6eef9);
+}
+
+/* ---- Modern button shine ---- */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0067c5, #003366);
+  transition: all 0.4s;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -75px;
+  width: 50px; height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
+  transition: all 0.75s;
+}
+.btn-primary:hover::after { left: 120%; }
+
+/* ---- Glassy Cards ---- */
+.card {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.4s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
