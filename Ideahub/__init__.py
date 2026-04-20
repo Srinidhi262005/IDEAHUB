@@ -4,7 +4,7 @@ from Ideahub.extensions import db, migrate, login_manager, socketio, session
 
 def create_app():
     app = Flask(__name__)
-    app.config["SECRET_KEY"] = "dev-secret"
+    app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY", "dev-secret")
 
     # ✅ SINGLE SOURCE OF TRUTH
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -15,7 +15,10 @@ def create_app():
     SESSION_PATH = os.path.abspath(os.path.join(os.environ.get("TEMP", "C:\\Temp"), "ideahub_sessions"))
     os.makedirs(SESSION_PATH, exist_ok=True)
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_PATH}"
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+        "DATABASE_URL",
+        f"sqlite:///{DB_PATH}"
+    )
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     
     # Fix 3: Explicit session configuration for Flask-Login persistence

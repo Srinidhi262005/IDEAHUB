@@ -1,7 +1,15 @@
 .venv/
+venv/
 __pycache__/
 *.pyc
 .env
 .vscode/
 uploads/
+flask_session/
+instance/
+Ideahub/instance/
+*.db
+*.sqlite3
+images_unpacked/
+images.zip
 *.log
