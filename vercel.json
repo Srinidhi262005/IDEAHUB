@@ -1,10 +1,4 @@
-{
-  "buildCommand": "pip install -r requirements.txt",
-  "framework": "flask",
-  "python": "3.11",
-  "env": {
-    "FLASK_APP": "Ideahub"
-  },
+{{
   "functions": {
     "api/index.py": {
       "memory": 1024,
